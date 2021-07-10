@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi primer página con vue</title>
+</head>
+<body>
+  <div Id="app">
+    <h1>Hola mundo</h1>
+    <h2>{{titulo}}</h2>
+    <p>
+      <input type="text" v-model="nombre">
+      <button @click="invertir">invertir</button>
+    </p>
+
+    <ul>
+      <li v-for="fruta of frutas">{{fruta}}</li>
+    </ul>
+
+    <h2>Verduras</h2>
+    <ul>
+      <li v-for="verdura of verduras">
+        {{verdura.nombre}}
+        <input type="text" v-model="verdura.cantidad" />
+        <button @click="verdura.cantidad++">+</button>
+        <button @click="verdura.cantidad--">-</button>
+        <span v-if="verdura.cantidad == 0">Sin stock</span>
+      </li>
+    </ul>
+    <h3>Cantidad total de verduras: {{sumaVerduras}}</h3>
+    <p>
+      Nueva verdura: 
+      <input type="text" v-model="nuevaVerdura" />
+      <button @click="agregarVerdura">Agregar</button>
+    </p>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="01.js"></script>
+</body>
+</html>
